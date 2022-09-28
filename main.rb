@@ -62,10 +62,10 @@ def decode(text)
         elsif i == "."
             out += ''.join(arr)
         elsif i == "#"
-            arr.append(chr(0x60+value))
+            arr.append((0x60+value).chr)
             value = 0
         elsif i == "@"
-            arr.append(chr(0x40+value))
+            arr.append((0x40+value).chr)
             value = 0
         elsif i == ";"
             break
@@ -74,7 +74,7 @@ def decode(text)
         elsif i == "!"
             value = 0
         elsif i == "&"
-            arr.append(str(value))
+            arr.append(value.to_s)
         end
     end
     return ''.join(arr)
