@@ -1,39 +1,63 @@
 #import os, sys, string
 
-def encode(text):
+def encode(text)
     arr = []
-    for i in text:
-        if i not in list(string.ascii_letters + string.digits): return f"Invalid character at position {text.index(i)}"
-        if i == " ": arr.append("*")
-        elif i.isupper(): arr.append(f"{(int(hex(ord(i)), 16) - int('0x40', 16))*'+'}@")
-        elif i.islower(): arr.append(f"{(int(hex(ord(i)), 16) - int('0x60', 16))*'+'}#")
-        elif i.isdigit:
+    for i in text
+        if i not in list(string.ascii_letters + string.digits)
+            return f"Invalid character at position {text.index(i)}"
+        end
+        if i == " "
+            arr.append("*")
+        end
+        elsif i.isupper()
+            arr.append(f"{(int(hex(ord(i)), 16) - int('0x40', 16))*'+'}@")
+        elsif i.islower()
+            arr.append(f"{(int(hex(ord(i)), 16) - int('0x60', 16))*'+'}#")
+        elsif i.isdigit
             var = "+"*int(i) + "&!"
             arr.append(var)
+        end
+    end
     arr.append(".;")
     return ''.join(arr)
+end
 
-def decode(text):
+def decode(text)
     value = 0
     arr = []
     out = str()
-    for i in text:
-        if i == "+": value += 1
-        elif i == "-": value -= 1
-        elif i == ".": out += ''.join(arr)
-        elif i == "#":
+    for i in text
+        if i == "+"
+            value += 1
+        elsif i == "-"
+            value -= 1
+        elsif i == "."
+            out += ''.join(arr)
+        elsif i == "#"
             arr.append(chr(0x60+value))
             value = 0
-        elif i == "@":
+        elsif i == "@"
             arr.append(chr(0x40+value))
             value = 0
-        elif i == ";": break
-        elif i == "*": arr.append(" ")
-        elif i == "!": value = 0
-        elif i == "&": arr.append(str(value))
+        elsif i == ";"
+            break
+        elsif i == "*"
+            arr.append(" ")
+        elsif i == "!"
+            value = 0
+        elsif i == "&"
+            arr.append(str(value))
+        end
+    end
     return ''.join(arr)
+end
 
 if __name__ == "__main__":
-    if sys.argv[1] == "encode": print(encode(sys.argv[2]))
-    elif sys.argv[1] == "decode": print(decode(sys.argv[2]))
-    else: print(f"Invalid arguments\nUsage: {sys.argv[0]} <encode/decode> <string>")
+    if ARGV[0] == "encode"
+        puts "#{encode(ARGV[1])}"
+    elif ARGV[0] == "decode"
+        puts "#{decode(ARGV[0])}"
+    else
+        puts "Invalid arguments\nUsage: #{} <encode/decode> <string>"
+    end
+end
