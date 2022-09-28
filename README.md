@@ -1,6 +1,6 @@
 # archiescript-ruby
 A custom esolang made by thatOneArchUser, this repository contains encoder and decoder <br>
-*rewritten in ruby by Archisha69*
+(*rewritten in ruby by Archisha*)
 
 ## How they works?
 Encoder and Decoder listen to these commands:
