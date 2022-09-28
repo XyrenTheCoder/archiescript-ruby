@@ -25,3 +25,6 @@ Encoder and Decoder listen to these commands:
 
 ## Usage
 `ruby main.rb <encode/decode> <string>`
+
+## credits
+original work by [thatOneArchUser](https://github.com/thatOneArchUser/archiescript)
