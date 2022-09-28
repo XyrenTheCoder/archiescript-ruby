@@ -58,6 +58,6 @@ if __name__ == "__main__":
     elif ARGV[0] == "decode"
         puts "#{decode(ARGV[0])}"
     else
-        puts "Invalid arguments\nUsage: #{} <encode/decode> <string>"
+        puts "Invalid arguments\nUsage: #{File.basename(__FILE__} <encode/decode> <string>"
     end
 end
