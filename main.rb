@@ -4,15 +4,15 @@ def encode(text)
     arr = []
     for i in text
         if i not in list(string.ascii_letters + string.digits)
-            return f"Invalid character at position {text.index(i)}"
+            return "Invalid character at position #{text.index(i)}"
         end
         if i == " "
             arr.append("*")
         end
         elsif i.isupper()
-            arr.append(f"{(int(hex(ord(i)), 16) - int('0x40', 16))*'+'}@")
+            arr.append("#{(int(hex(ord(i)), 16) - int('0x40', 16))*'+'}@")
         elsif i.islower()
-            arr.append(f"{(int(hex(ord(i)), 16) - int('0x60', 16))*'+'}#")
+            arr.append("#{(int(hex(ord(i)), 16) - int('0x60', 16))*'+'}#")
         elsif i.isdigit
             var = "+"*int(i) + "&!"
             arr.append(var)
