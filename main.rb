@@ -1,5 +1,15 @@
 #import os, sys, string
 
+ascii_letters = []
+digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+for a in (65..91)
+    ascii_letters.append(a.chr)
+end
+for b in (97..123)
+    ascii_letters.append(b.chr)
+end
+
 class String
     def isupper?
         self == self.upcase
@@ -10,7 +20,7 @@ class String
     end
     
     def isdigit?
-        if self in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        if self in digits
             return true
         else
             return false
@@ -18,11 +28,10 @@ class String
     end
 end
 
-
 def encode(text)
     arr = []
     for i in text
-        if i not in list(string.ascii_letters + string.digits)
+        if i not in ascii_letters + digits
             return "Invalid character at position #{text.find_index(i)}"
         end
         if i == " "
