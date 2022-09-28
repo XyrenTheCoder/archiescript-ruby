@@ -23,7 +23,7 @@ def encode(text)
     arr = []
     for i in text
         if i not in list(string.ascii_letters + string.digits)
-            return "Invalid character at position #{text.index(i)}"
+            return "Invalid character at position #{text.find_index(i)}"
         end
         if i == " "
             arr.append("*")
