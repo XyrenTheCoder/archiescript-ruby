@@ -38,11 +38,11 @@ def encode(text)
             arr.append("*")
         end
         elsif i.isupper?
-            arr.append("#{(i.ord.to_s(16).to_i - int('0x40', 16))*'+'}@")
+            arr.append("#{(i.ord.to_s(16).to_i - '0x40'.to_i(16))*'+'}@")
         elsif i.islower?
-            arr.append("#{(i.ord.to_s(16).to_i - int('0x60', 16))*'+'}#")
+            arr.append("#{(i.ord.to_s(16).to_i - '0x60'.to_i(16))*'+'}#")
         elsif i.isdigit?
-            var = "+"*int(i) + "&!"
+            var = "+"*i.to_i + "&!"
             arr.append(var)
         end
     end
