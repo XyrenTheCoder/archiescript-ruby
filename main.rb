@@ -80,7 +80,7 @@ def decode(text)
     return ''.join(arr)
 end
 
-if __name__ == "__main__":
+if __FILE__ == $0
     if ARGV[0] == "encode"
         puts "#{encode(ARGV[1])}"
     elif ARGV[0] == "decode"
