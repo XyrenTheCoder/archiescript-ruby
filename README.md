@@ -1,5 +1,5 @@
 # archiescript-ruby
-A custom esolang made by thatOneArchUser, this repository contains encoder and decoder
+A custom esolang made by thatOneArchUser, this repository contains encoder and decoder <br>
 *rewritten in ruby by Archisha69*
 
 ## How they works?
