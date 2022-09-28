@@ -1,5 +1,24 @@
 #import os, sys, string
 
+class String
+    def isupper?
+        self == self.upcase
+    end
+
+    def islower?
+        self == self.downcase
+    end
+    
+    def isdigit?
+        if self in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            return true
+        else
+            return false
+        end
+    end
+end
+
+
 def encode(text)
     arr = []
     for i in text
@@ -9,11 +28,11 @@ def encode(text)
         if i == " "
             arr.append("*")
         end
-        elsif i.isupper()
+        elsif i.isupper?
             arr.append("#{(int(hex(ord(i)), 16) - int('0x40', 16))*'+'}@")
-        elsif i.islower()
+        elsif i.islower?
             arr.append("#{(int(hex(ord(i)), 16) - int('0x60', 16))*'+'}#")
-        elsif i.isdigit
+        elsif i.isdigit?
             var = "+"*int(i) + "&!"
             arr.append(var)
         end
