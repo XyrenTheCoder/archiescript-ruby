@@ -1,12 +1,5 @@
-$ascii_letters = []
+$ascii_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
 $digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-for a in 65..90
-    $ascii_letters.append(a.chr)
-end
-for b in 97..122
-    $ascii_letters.append(b.chr)
-end
 
 class String
     def isupper?
@@ -22,7 +15,7 @@ class String
     end
 end
 
-def encode(text)
+def encode(*text)
     arr = []
     text.each_char do |i|
         if not ($ascii_letters + $digits).include? i
@@ -43,7 +36,7 @@ def encode(text)
     return arr.join
 end
 
-def decode(text)
+def decode(*text)
     value = 0
     arr = []
     out = ''
@@ -75,11 +68,11 @@ end
 
 if __FILE__ == $0
     if ARGV[0] == "encode"
-        args = ARGV.shift
-        puts "#{encode(ARGV[0])}"
+        ARGV.shift
+        puts "#{encode(ARGV)}"
     elsif ARGV[0] == "decode"
-        args = ARGV.shift
-        puts "#{decode(ARGV[0])}"
+        ARGV.shift
+        puts "#{decode(ARGV)}"
     else
         puts "Invalid arguments\nUsage: #{File.basename(__FILE__)} <encode/decode> <string>"
     end
