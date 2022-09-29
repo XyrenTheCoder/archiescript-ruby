@@ -24,9 +24,9 @@ def encode(*text)
         if i == " "
             arr.append("*")
         elsif i.isupper?
-            arr.append("#{'+'*((i.ord.to_s(16).to_i - 40).to_s.hex)}@")
+            arr.append("#{'+'*((i.ord.to_s(16).to_i - 40).to_s.hex).abs}@")
         elsif i.islower?
-            arr.append("#{'+'*((i.ord.to_s(16).to_i - 60).to_s.hex)}#")
+            arr.append("#{'+'*((i.ord.to_s(16).to_i - 60).to_s.hex).abs}#")
         elsif i.isdigit?
             var = "+"*i.to_i + "&!"
             arr.append(var)
