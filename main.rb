@@ -75,9 +75,11 @@ end
 
 if __FILE__ == $0
     if ARGV[0] == "encode"
-        puts "#{encode(ARGV[1])}"
+        args = ARGV.shift
+        puts "#{encode(ARGV[0])}"
     elsif ARGV[0] == "decode"
-        puts "#{decode(ARGV[1])}"
+        args = ARGV.shift
+        puts "#{decode(ARGV[0])}"
     else
         puts "Invalid arguments\nUsage: #{File.basename(__FILE__)} <encode/decode> <string>"
     end
