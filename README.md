@@ -5,11 +5,11 @@ A custom esolang made by thatOneArchUser, this repository contains encoder and d
 ## How they works?
 Encoder and Decoder listen to these commands:
 
-`+` increases the [value](https://github.com/thatOneArchUser/archiescript/blob/main/decoder.py#L5) integer
+`+` increases the value integer
 
 > `-` decreases the value integer (remains unused, decrement issue)
 
-`#` appends a lowercase letter in the [array](https://github.com/thatOneArchUser/archiescript/blob/main/decoder.py#L10)
+`#` appends a lowercase letter in the array
 
 `@` appends a uppercase letter in the array
 
