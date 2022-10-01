@@ -19,17 +19,28 @@ def encode(*text)
     arr = []
     text.join(" ").each_char do |i|
         if not ($ascii_letters + $digits).include? i
+            text = text.to_a
             return "Invalid character at position #{text.index(i)}"
         end
         if i == " "
             arr.append("*")
-        elsif i.isupper?
-            arr.append("#{'+'*((i.ord.to_s(16).to_i - 40).to_s.hex).abs}@")
-        elsif i.islower?
-            arr.append("#{'+'*((i.ord.to_s(16).to_i - 60).to_s.hex).abs}#")
         elsif i.isdigit?
-            var = "+"*i.to_i + "&!"
+            var = "+"*i.to_i + "%~"
             arr.append(var)
+
+            #arr.append(i) #debug
+        elsif i.isupper?
+            i = i.ord.to_i - 64 #0x40
+            arr.append("#{'+'*i}@")
+
+            #arr.append(i) #debug
+            
+        elsif i.islower?
+            i = i.ord.to_i - 96 #0x60
+            arr.append("#{'+'*i}#")
+
+            #arr.append(i) #debug
+
         end
     end
     arr.append(".;")
@@ -48,18 +59,18 @@ def decode(*text)
         elsif i == "."
             out += arr.join
         elsif i == "#"
-            arr.append((60+value).to_s.hex.chr)
+            arr.append((96+value).chr)
             value = 0
         elsif i == "@"
-            arr.append((40+value).to_s.hex.chr)
+            arr.append((64+value).chr)
             value = 0
         elsif i == ";"
             break
         elsif i == "*"
             arr.append(" ")
-        elsif i == "!"
+        elsif i == "~"
             value = 0
-        elsif i == "&"
+        elsif i == "%"
             arr.append(value.to_s)
         end
     end
