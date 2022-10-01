@@ -29,6 +29,7 @@ def encode(*text)
             arr.append(var)
 
             #arr.append(i) #debug
+
         elsif i.isupper?
             i = i.ord.to_i - 64 #0x40
             arr.append("#{'+'*i}@")
