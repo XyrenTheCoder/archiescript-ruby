@@ -1,13 +1,11 @@
 # archiescript-ruby
 A custom esolang made by thatOneArchUser, this repository contains encoder and decoder <br>
-(*rewritten and modified in ruby by Archisha*)
+(*rewritten in ruby by me*)
 
 ## How they works?
 Encoder and Decoder listen to these commands:
 
 `+` increases the value integer
-
-> `-` decreases the value integer (remains unused, decrement issue)
 
 `#` appends a lowercase letter in the array
 
