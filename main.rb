@@ -5,11 +5,9 @@ class String
     def isupper?
         self == self.upcase
     end
-
     def islower?
         self == self.downcase
     end
-    
     def isdigit?
         $digits.include? self
     end
@@ -27,21 +25,12 @@ def encode(*text)
         elsif i.isdigit?
             var = "+"*i.to_i + "%~"
             arr.append(var)
-
-            #arr.append(i) #debug
-
         elsif i.isupper?
             i = i.ord.to_i - 64 #0x40
             arr.append("#{'+'*i}@")
-
-            #arr.append(i) #debug
-            
         elsif i.islower?
             i = i.ord.to_i - 96 #0x60
             arr.append("#{'+'*i}#")
-
-            #arr.append(i) #debug
-
         end
     end
     arr.append(".;")
@@ -55,8 +44,6 @@ def decode(*text)
     text.join(" ").each_char do |i|
         if i == "+"
             value += 1
-        elsif i == "-"
-            value -= 1
         elsif i == "."
             out += arr.join
         elsif i == "#"
